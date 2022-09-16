@@ -13,24 +13,28 @@ namespace _1st_Lesson
             double height = double.Parse(Console.ReadLine());
             Console.Write("Introduce your weight in kg's: ");
             double weight = double.Parse(Console.ReadLine());
-            double BMI = Math.Round(weight / (height * height), 2);
-            switch (BMI)
-            {
-                case double n when (n <= 18.5):
-                    Console.WriteLine("Your BMI is: {0}", BMI + " You are underweight");
-                    break;
-                case double n when (n >= 18.5 && n <= 24.9):
-                    Console.WriteLine("Your BMI is: {0}", BMI + " You are healthy");
-                    break;
-                case double n when (n >= 25 && n <= 29.9):
-                    Console.WriteLine("Your BMI is: {0}", BMI + " You are overweight");
-                    break;
-                case double n when (n >= 30 && n <= 39.9):
-                    Console.WriteLine("Your BMI is: {0}", BMI + " You are obese");
-                    break;
-                default:
-                    Console.WriteLine("You are extremely obese");
-                    break;
+            if(height != 0 && weight != 0){
+                double BMI = Math.Round(weight / (height * height), 2);
+                switch (BMI)
+                {
+                    case double n when (n <= 18.5):
+                        Console.WriteLine("Your BMI is: {0}", BMI + " You are underweight");
+                        break;
+                    case double n when (n >= 18.5 && n <= 24.9):
+                        Console.WriteLine("Your BMI is: {0}", BMI + " You are healthy");
+                        break;
+                    case double n when (n >= 25 && n <= 29.9):
+                        Console.WriteLine("Your BMI is: {0}", BMI + " You are overweight");
+                        break;
+                    case double n when (n >= 30 && n <= 39.9):
+                        Console.WriteLine("Your BMI is: {0}", BMI + " You are obese");
+                        break;
+                    default:
+                        Console.WriteLine("Your BMI is: {0}", BMI + " You are extremely obese");
+                        break;
+                }
+            }else{
+                Console.WriteLine("Introduce some real value, please.");
             }
             #endregion
 
@@ -59,7 +63,7 @@ namespace _1st_Lesson
             double s = double.Parse(Console.ReadLine());
             Console.Write("Introduce the nth (nth term) value: "); 
             double nth = double.Parse(Console.ReadLine());
-            if (nth >= 0)
+            if (nth > 0)
             {
                 double d = 2 * (s - nth * a0) / nth * (nth - 1);
                 double an = a0 + (nth - 1) * d;
